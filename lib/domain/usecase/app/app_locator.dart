@@ -4,6 +4,7 @@ import 'package:clean_arch_cubit/data/dataSources/appLocalData/app_local_data.da
 import 'package:clean_arch_cubit/data/dataSources/appLocalData/app_local_data_impl.dart';
 import 'package:clean_arch_cubit/data/repo/auth_repo_impl.dart';
 import 'package:clean_arch_cubit/domain/repo/auth_repo.dart';
+import 'package:clean_arch_cubit/domain/usecase/login/login_cubit.dart';
 import 'package:clean_arch_cubit/domain/usecase/splash/splash_cubit.dart';
 import 'package:get_it/get_it.dart';
 
@@ -26,7 +27,7 @@ import 'package:get_it/get_it.dart';
 
     //Repo
     getIt.registerLazySingleton<AuthRepo>(() => AuthRepoImpl.getInstance());
-    //getIt.registerFactory<SplashCubit>(() => SplashCubit());
+    getIt.registerFactory<LoginCubit>(() => LoginCubit());
 
     //BLOC and Cubit
     //getIt.registerFactory<SplashCubit>(() => SplashCubit());

@@ -16,8 +16,6 @@ class SplashCubit extends Cubit<SplashState> {
     startTimer();
   }
 
-  //SplashCubit(super.initialState);
-
   @override
   Future<void> close() {
     if (_timer != null) _timer!.cancel();

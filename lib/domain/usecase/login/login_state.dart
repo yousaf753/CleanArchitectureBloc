@@ -1,21 +1,31 @@
 part of 'login_cubit.dart';
 
-class LoginState {
-  Resource? onPassErrorResource;
-  Resource? onUsernameErrorResource;
-  Resource? onApiResource;
-  Resource? onMoveToHome;
+class LoginState extends Equatable {
+  final Resource? onPassErrorResource;
+  final Resource? onUsernameErrorResource;
+  final Resource? onApiResource;
+  final Resource? onMoveToHome;
 
-  LoginState({this.onPassErrorResource, this.onApiResource, this.onUsernameErrorResource,this.onMoveToHome});
+  const LoginState({
+    this.onPassErrorResource,
+    this.onApiResource,
+    this.onUsernameErrorResource,
+    this.onMoveToHome,
+  });
 
-  factory LoginState.initial(){
-    return LoginState();
+  factory LoginState.initial() {
+    return const LoginState();
   }
 
   @override
-  List<Object?> get props => [onPassErrorResource, onUsernameErrorResource, onApiResource];
+  List<Object?> get props => [onPassErrorResource, onUsernameErrorResource, onApiResource, onMoveToHome];
 
-  LoginState copyWith({Resource? onPassErrorResource, Resource? onUsernameErrorResource, Resource? onApiResource,Resource? onMoveToHome}) {
+  LoginState copyWith({
+    Resource? onPassErrorResource,
+    Resource? onUsernameErrorResource,
+    Resource? onApiResource,
+    Resource? onMoveToHome,
+  }) {
     return LoginState(
       onPassErrorResource: onPassErrorResource ?? this.onPassErrorResource,
       onUsernameErrorResource: onUsernameErrorResource ?? this.onUsernameErrorResource,

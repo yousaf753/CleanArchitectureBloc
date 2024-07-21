@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:clean_arch_cubit/config/network/resource.dart';
 import 'package:clean_arch_cubit/config/network/status.dart';
 import 'package:clean_arch_cubit/data/model/remote/auth/login_request.dart';

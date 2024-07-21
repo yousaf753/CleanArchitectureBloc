@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
-class LoginScreen extends StatefulWidget {
+/*class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
@@ -95,11 +95,11 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-}
+}*/
 
 
-/*class LoginScreen2 extends StatelessWidget {
-  const LoginScreen2({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -118,10 +118,10 @@ class _LoginScreenState extends State<LoginScreen> {
               Text(
                 "Login",
                 style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                      color: AppColors.colorSecondaryText1,
-                      fontSize: AppFontSize.textUltraLarge,
-                      fontWeight: FontWeight.w700,
-                    ),
+                  color: AppColors.colorSecondaryText1,
+                  fontSize: AppFontSize.textUltraLarge,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
               const SizedBox(
                 height: 20,
@@ -149,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     errorText:
                     (state.onPassErrorResource != null && state.onPassErrorResource!.message!.isNotEmpty) ? state.onPassErrorResource!.message : "",
                     onChange: (value) {
-                      loginCubit.getLoginData.setUsername(value);
+                      loginCubit.getLoginData.setPassword(value);
                     },
                   );
                 },
@@ -168,11 +168,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                     );
                   },
-                  listener: (context, state) {}),
+                  listener: (context, state) {
+                    if(state.onPassErrorResource != null && state.onPassErrorResource!.message!.isNotEmpty){
+                      debugPrint("${state.onPassErrorResource!.message}");
+                    }
+                  }),
             ],
           ),
         ),
       ),
     );
   }
-}*/
+}

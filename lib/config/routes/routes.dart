@@ -1,3 +1,4 @@
+import 'package:clean_arch_cubit/domain/usecase/app/app_locator.dart';
 import 'package:clean_arch_cubit/domain/usecase/login/login_cubit.dart';
 import 'package:clean_arch_cubit/domain/usecase/splash/splash_cubit.dart';
 import 'package:clean_arch_cubit/presentation/home_screen.dart';
@@ -30,7 +31,7 @@ final GoRouter appRoutes = GoRouter(
       path: "/${Routes.kLogin}",
       builder: (BuildContext context, GoRouterState state) {
         return BlocProvider(
-            create: (_) => LoginCubit(),
+            create: (_) => getIt<LoginCubit>(),
             child: const LoginScreen());
       },
     ),

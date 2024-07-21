@@ -118,10 +118,10 @@ class LoginScreen extends StatelessWidget {
               Text(
                 "Login",
                 style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                  color: AppColors.colorSecondaryText1,
-                  fontSize: AppFontSize.textUltraLarge,
-                  fontWeight: FontWeight.w700,
-                ),
+                      color: AppColors.colorSecondaryText1,
+                      fontSize: AppFontSize.textUltraLarge,
+                      fontWeight: FontWeight.w700,
+                    ),
               ),
               const SizedBox(
                 height: 20,
@@ -168,11 +168,7 @@ class LoginScreen extends StatelessWidget {
                       },
                     );
                   },
-                  listener: (context, state) {
-                    if(state.onPassErrorResource != null && state.onPassErrorResource!.message!.isNotEmpty){
-                      debugPrint("${state.onPassErrorResource!.message}");
-                    }
-                  }),
+                  listener: (context, state) {}),
             ],
           ),
         ),

@@ -25,7 +25,8 @@ class LoginCubit extends Cubit<LoginState> {
   get passwordController => _passwordController;
 
   LoginCubit() : super(LoginState.initial()) {
-    _loginData.setPassword(_passwordController.text).setUsername(_usernameController.text);
+    _loginData.setPassword(_passwordController.text)
+        .setUsername(_usernameController.text);
   }
 
   @override

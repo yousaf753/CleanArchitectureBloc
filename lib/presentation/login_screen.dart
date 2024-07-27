@@ -1,6 +1,5 @@
 import 'package:clean_arch_cubit/config/network/status.dart';
 import 'package:clean_arch_cubit/config/routes/routes.dart';
-import 'package:clean_arch_cubit/domain/usecase/app/app_locator.dart';
 import 'package:clean_arch_cubit/domain/usecase/login/login_cubit.dart';
 import 'package:clean_arch_cubit/presentation/customWidget/common_button.dart';
 import 'package:clean_arch_cubit/presentation/customWidget/input_field.dart';
@@ -16,7 +15,10 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     debugPrint("IN PAGE >>>>>>>>>>>>>>>> LOGIN");
-    final loginCubit = getIt<LoginCubit>();
+
+    //final loginCubit = getIt<LoginCubit>();
+    final loginCubit = BlocProvider.of<LoginCubit>(context);
+
 
     return SafeArea(
       child: Scaffold(

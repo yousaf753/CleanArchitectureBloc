@@ -6,8 +6,6 @@ import 'package:clean_arch_cubit/data/repo/auth_repo_impl.dart';
 import 'package:clean_arch_cubit/data/repo/user_repo_impl.dart';
 import 'package:clean_arch_cubit/domain/repo/auth_repo.dart';
 import 'package:clean_arch_cubit/domain/repo/user_repo.dart';
-import 'package:clean_arch_cubit/domain/usecase/home/home_cubit.dart';
-import 'package:clean_arch_cubit/domain/usecase/login/login_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
@@ -22,8 +20,9 @@ void setupLocator() {
   getIt.registerLazySingleton<UserRepo>(() => UserRepoImpl.getInstance());
 
   //Cubit or bloc
-  getIt.registerLazySingleton<LoginCubit>(() => LoginCubit()); //registerFactory does not work for this
-  getIt.registerLazySingleton<HomeCubit>(() => HomeCubit());
+  //getIt.registerLazySingleton<LoginCubit>(() => LoginCubit()); //registerFactory does not work for this
+  //getIt.registerLazySingleton<HomeCubit>(() => HomeCubit());
+  //getIt.registerFactory<LoginCubit>(()=>LoginCubit());
 
 
 }

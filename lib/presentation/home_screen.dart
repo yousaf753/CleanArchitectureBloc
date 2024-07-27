@@ -1,6 +1,5 @@
 import 'package:clean_arch_cubit/config/network/status.dart';
 import 'package:clean_arch_cubit/config/routes/routes.dart';
-import 'package:clean_arch_cubit/domain/usecase/app/app_locator.dart';
 import 'package:clean_arch_cubit/domain/usecase/home/home_cubit.dart';
 import 'package:clean_arch_cubit/presentation/customWidget/app_image.dart';
 import 'package:clean_arch_cubit/presentation/customWidget/app_top_bar.dart';
@@ -16,7 +15,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     debugPrint("IN PAGE >>>>>>>>>>>>>>>> HOME");
-    final homeCubit = getIt<HomeCubit>();
+    //final homeCubit = getIt<HomeCubit>();
+    final homeCubit = BlocProvider.of<HomeCubit>(context);
+
 
     return SafeArea(
       child: Scaffold(

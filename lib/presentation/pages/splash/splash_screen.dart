@@ -9,6 +9,8 @@ import 'package:go_router/go_router.dart';
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
+  /// For Cubit we dont actually need Events, only State is required
+  /// Cubit is a part of BLOC
   @override
   Widget build(BuildContext context) {
     return SafeArea(

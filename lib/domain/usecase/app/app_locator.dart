@@ -11,18 +11,11 @@ import 'package:get_it/get_it.dart';
 final getIt = GetIt.instance;
 
 void setupLocator() {
-  // Register
+  // Register Single Responsible classes
   getIt.registerLazySingleton<AppLocalData>(() => AppLocalDataImpl.getInstance());
   getIt.registerLazySingleton<ApiService>(() => ApiServiceImpl.getInstance());
 
-  //Repo
+  //Repository
   getIt.registerLazySingleton<AuthRepo>(() => AuthRepoImpl.getInstance());
   getIt.registerLazySingleton<UserRepo>(() => UserRepoImpl.getInstance());
-
-  //Cubit or bloc
-  //getIt.registerLazySingleton<LoginCubit>(() => LoginCubit()); //registerFactory does not work for this
-  //getIt.registerLazySingleton<HomeCubit>(() => HomeCubit());
-  //getIt.registerFactory<LoginCubit>(()=>LoginCubit());
-
-
 }

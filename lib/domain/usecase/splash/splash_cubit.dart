@@ -5,6 +5,10 @@ import 'package:clean_arch_cubit/domain/usecase/app/app_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
+/// We have two technique to create state
+/// One displayed in Splash as a enum classes
+/// Second displayed in Login and Home with dedicated classes.
 enum SplashState { initial, moveToLogin, moveToHome }
 
 class SplashCubit extends Cubit<SplashState> {

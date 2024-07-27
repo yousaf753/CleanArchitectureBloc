@@ -1,9 +1,9 @@
 import 'package:clean_arch_cubit/domain/usecase/home/home_cubit.dart';
 import 'package:clean_arch_cubit/domain/usecase/login/login_cubit.dart';
 import 'package:clean_arch_cubit/domain/usecase/splash/splash_cubit.dart';
-import 'package:clean_arch_cubit/presentation/home_screen.dart';
-import 'package:clean_arch_cubit/presentation/login_screen.dart';
-import 'package:clean_arch_cubit/presentation/splash_screen.dart';
+import 'package:clean_arch_cubit/presentation/pages/home/home_screen.dart';
+import 'package:clean_arch_cubit/presentation/pages/login/login_screen.dart';
+import 'package:clean_arch_cubit/presentation/pages/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -30,8 +30,8 @@ final GoRouter appRoutes = GoRouter(
       name: Routes.kLogin,
       path: "/${Routes.kLogin}",
       builder: (BuildContext context, GoRouterState state) {
-        return BlocProvider(
-            create: (_) => LoginCubit(),//getIt<LoginCubit>(),
+        return BlocProvider( //when you use a bloc or cubit its important to use a a  blocProvider
+            create: (_) => LoginCubit(),
             child: const LoginScreen());
       },
     ),
@@ -39,7 +39,7 @@ final GoRouter appRoutes = GoRouter(
       name: Routes.kHome,
       path: "/${Routes.kHome}",
       builder: (BuildContext context, GoRouterState state) {
-        return BlocProvider(create: (_) => HomeCubit(),//getIt<HomeCubit>(),
+        return BlocProvider(create: (_) => HomeCubit(),
         child: const HomeScreen(),
         );
       },

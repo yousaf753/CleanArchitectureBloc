@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
-  //WidgetsFlutterBinding.ensureInitialized();
-
+  //Load initial environment
   await dotenv.load(fileName: Config.dev);
 
+  //Set up dependencies
   setupLocator();
 
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp.router(//.router used because  of GoRouter dependencies
       routerConfig: appRoutes,
     );
   }

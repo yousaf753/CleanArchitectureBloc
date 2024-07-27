@@ -19,7 +19,6 @@ class LoginScreen extends StatelessWidget {
     //final loginCubit = getIt<LoginCubit>();
     final loginCubit = BlocProvider.of<LoginCubit>(context);
 
-
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.colorBackground,
@@ -44,7 +43,9 @@ class LoginScreen extends StatelessWidget {
                 builder: (context, state) {
                   return InputField(
                     hintText: "Username",
-                    errorText: (state.onUsernameErrorResource != null && state.onUsernameErrorResource!.message!.isNotEmpty) ? state.onUsernameErrorResource!.message : "",
+                    errorText: (state.onUsernameErrorResource != null && state.onUsernameErrorResource!.message!.isNotEmpty)
+                        ? state.onUsernameErrorResource!.message
+                        : "",
                     controller: loginCubit.usernameController,
                     onChange: (value) {
                       loginCubit.getLoginData.setUsername(value);
@@ -60,8 +61,9 @@ class LoginScreen extends StatelessWidget {
                   return InputField(
                     hintText: "Password",
                     controller: loginCubit.passwordController,
-                    errorText:
-                    (state.onPassErrorResource != null && state.onPassErrorResource!.message!.isNotEmpty) ? state.onPassErrorResource!.message : "",
+                    errorText: (state.onPassErrorResource != null && state.onPassErrorResource!.message!.isNotEmpty)
+                        ? state.onPassErrorResource!.message
+                        : "",
                     onChange: (value) {
                       loginCubit.getLoginData.setPassword(value);
                     },
@@ -71,21 +73,19 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              BlocConsumer<LoginCubit, LoginState>(
-                  builder: (context, state) {
-                    return CommonButton(
-                      loading: (state.onApiResource != null && state.onApiResource!.status == STATUS.LOADING),
-                      buttonText: "Submit",
-                      onPressed: () {
-                        loginCubit.onSubmit();
-                      },
-                    );
+              BlocConsumer<LoginCubit, LoginState>(builder: (context, state) {
+                return CommonButton(
+                  loading: (state.onApiResource != null && state.onApiResource!.status == STATUS.LOADING),
+                  buttonText: "Submit",
+                  onPressed: () {
+                    loginCubit.onSubmit();
                   },
-                  listener: (context, state) {
-                    if(state.onMoveToHome != null){
-                      GoRouter.of(context).pushReplacementNamed(Routes.kHome);
-                    }
-                  }),
+                );
+              }, listener: (context, state) {
+                if (state.onMoveToHome != null) {
+                  GoRouter.of(context).pushReplacementNamed(Routes.kHome);
+                }
+              }),
             ],
           ),
         ),

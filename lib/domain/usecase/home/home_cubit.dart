@@ -24,7 +24,6 @@ class HomeCubit extends Cubit<HomeState>{
   onLogout() async{
     await _authRepo.clearAllData();
     emit(state.copyWith(onMoveToLogin: Resource()));
-    //_authRepo.clearAllData().then((value) => emit(state.copyWith(onMoveToLogin: Resource())));
   }
 
 
@@ -35,7 +34,6 @@ class HomeCubit extends Cubit<HomeState>{
     };
     //////
 
-    ////// Any of data1 or data2 can be used
     emit(state.copyWith(onApiResource: Resource(status: STATUS.LOADING)));
     _authRepo.getAllUsers(requestData: data1).then((value) {
       emit(state.copyWith(onApiResource: Resource(status: STATUS.SUCCESS)));

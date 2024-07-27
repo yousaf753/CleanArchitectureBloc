@@ -10,6 +10,7 @@ build/
 local.properties
 
 # Log/OS Files
+node_modules/
 *.log
 
 # Android Studio generated files and folders

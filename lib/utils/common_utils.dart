@@ -12,9 +12,8 @@ class CommonUtils {
 
   CommonUtils._internal();
 
-  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
 
-  snackbarMessage(String message, BuildContext context) {
+  snackBarMessage(String message, BuildContext context) {
     return ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       backgroundColor: AppColors.colorRed,
       content: Text(

@@ -44,7 +44,7 @@ class ApiServiceImpl extends ApiService {
   }) async {
     try {
       if (withToken) {
-        final String token = await AppLocalDataImpl.getInstance().getToken() ?? "";
+        final String token = await AppLocalDataImpl.getInstance().getToken();
         _dio.options.headers["Authorization"] = "Bearer $token";
       }
       var response = await _dio.post(url, data: data != null ? jsonEncode(data) : null, options: options);
@@ -71,7 +71,7 @@ class ApiServiceImpl extends ApiService {
   }) async {
     try {
       if (withToken) {
-        final String token = await AppLocalDataImpl.getInstance().getToken() ?? "";
+        final String token = await AppLocalDataImpl.getInstance().getToken();
         _dio.options.headers["Authorization"] = "Bearer $token";
       }
       var response = await _dio.get(

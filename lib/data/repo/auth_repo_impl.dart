@@ -58,6 +58,6 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future<String> getToken() async {
-    return await (_localData.getToken()) ?? "";
+    return await (_localData.getToken());
   }
 }
